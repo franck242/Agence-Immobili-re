@@ -1,0 +1,137 @@
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+<!-- Carousel Section -->
+<div class="swiper main-swiper mt-5">
+    <div class="swiper-wrapper">
+        <?php
+        require("admin/connexion-bdd.php");
+        $requete = $connexion->prepare("SELECT * FROM appartements WHERE status = 0 LIMIT 5");
+        $requete->execute();
+        $appartements = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($appartements as $appartement): ?>
+            <div class="swiper-slide">
+                <div class="carousel-slide" style="background-image: url('img/<?php echo htmlspecialchars($appartement['photos']); ?>');">
+                    <div class="carousel-content">
+                        <h2><?php echo htmlspecialchars($appartement['categorie']); ?></h2>
+                        <p class="price"><?php echo htmlspecialchars($appartement['prix']); ?> €/mois</p>
+                        <div class="features">
+                            <span><i class="fas fa-ruler-combined"></i> <?php echo htmlspecialchars($appartement['superficie']); ?> m²</span>
+                            <span><i class="fas fa-bed"></i> <?php echo htmlspecialchars($appartement['lits']); ?> chambres</span>
+                            <span><i class="fas fa-bath"></i> <?php echo htmlspecialchars($appartement['salle_de_bains']); ?> SDB</span>
+                        </div>
+                        <a href="detail-appartements.php?apt=<?php echo $appartement['Id_appartements']; ?>" class="btn btn-primary mt-3">Voir détails</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<style>
+.main-swiper {
+    height: 600px;
+    margin-top: 76px;
+}
+
+.carousel-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.carousel-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.carousel-content {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.carousel-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content .price {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content .features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.carousel-content .features span {
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content .features i {
+    margin-right: 0.5rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;
+}
+
+.swiper-pagination-bullet {
+    background: white !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #007bff !important;
+}
+</style>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('.main-swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});
+</script>
