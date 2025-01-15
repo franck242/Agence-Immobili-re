@@ -1,0 +1,823 @@
+/* Hero Carousel */
+.hero-carousel {
+    height: 80vh;
+    min-height: 600px;
+    margin-top: -76px; /* Pour compenser la navbar fixe */
+}
+
+.carousel-item {
+    height: 80vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+}
+
+.carousel-content {
+    position: absolute;
+    color: white;
+    padding: 2rem;
+    max-width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.carousel-content .price {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #3a99ff;
+}
+
+.carousel-content .location {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.carousel-content .features {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-content .features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-carousel .swiper-button-next,
+.main-carousel .swiper-button-prev {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.main-carousel .swiper-button-next:after,
+.main-carousel .swiper-button-prev:after {
+    font-size: 1.5rem;
+}
+
+.main-carousel .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.5;
+}
+
+.main-carousel .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Search Section */
+.search-section {
+    margin-top: -50px;
+    position: relative;
+    z-index: 100;
+}
+
+.search-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Variables de couleurs */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #2c3e50;
+    --light-bg: #f8f9fa;
+    --transition: all 0.3s ease;
+}
+
+/* Navigation moderne */
+.navbar {
+    background-color: #000 !important;
+    padding: 1rem;
+    transition: var(--transition);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled {
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white !important;
+    transition: var(--transition);
+}
+
+.navbar-brand:hover {
+    color: var(--accent-color) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover {
+    color: var(--text-color);
+}
+
+.nav-link:hover::after {
+    width: 0;
+}
+
+.nav-link.active {
+    color: var(--accent-color);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 3rem 0;
+}
+
+footer a {
+    color: rgba(255,255,255,0.8);
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Effets de survol et animations */
+.hover-scale {
+    transition: var(--transition);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+.hover-translate {
+    transition: var(--transition);
+}
+
+.hover-translate:hover {
+    transform: translateY(-5px);
+}
+
+/* Formulaires et boutons */
+.form-control {
+    border: 2px solid #e9ecef;
+    padding: 0.8rem;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Sections About et Contact */
+#about {
+    position: relative;
+    overflow: hidden;
+}
+
+#about img {
+    transition: var(--transition);
+}
+
+#about img:hover {
+    transform: scale(1.05);
+}
+
+.contact-form {
+    transition: var(--transition);
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.contact-info i {
+    transition: var(--transition);
+}
+
+.contact-info .hover-translate:hover i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        background: white;
+    }
+    
+    .navbar-brand {
+        color: #3a99ff !important;
+    }
+
+    .navbar-toggler {
+        border-color: #3a99ff;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(58, 153, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-link {
+        padding: 0.5rem 1rem;
+        margin: 0.25rem 0;
+    }
+
+    .dropdown-menu {
+        background: white;
+        border: 1px solid rgba(58, 153, 255, 0.2);
+    }
+
+    .dropdown-item {
+        color: #3a99ff;
+    }
+
+    .dropdown-item:hover {
+        background: rgba(58, 153, 255, 0.1);
+        color: #3a99ff;
+    }
+}
+
+/* Page détail appartement */
+.apartment-detail-page {
+    margin-top: 0;
+    padding-top: 76px; /* Hauteur de la navbar */
+}
+
+.apartment-gallery {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.apartment-gallery .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.apartment-gallery .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 500px;
+}
+
+.apartment-gallery .swiper-button-next,
+.apartment-gallery .swiper-button-prev {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.apartment-gallery .swiper-button-next:hover,
+.apartment-gallery .swiper-button-prev:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.apartment-gallery .swiper-button-next:after,
+.apartment-gallery .swiper-button-prev:after {
+    font-size: 1.2rem;
+}
+
+.apartment-gallery .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0.5;
+}
+
+.apartment-gallery .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #3a99ff;
+}
+
+/* Informations de l'appartement */
+.apartment-main-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.apartment-main-info h1 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.apartment-price {
+    font-size: 2rem;
+    color: #3a99ff;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.apartment-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.feature-item i {
+    color: #3a99ff;
+    font-size: 1.5rem;
+}
+
+.apartment-description {
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* Section appartements similaires */
+.similar-apartments {
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.similar-apartments h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Ajustement navbar */
+.navbar {
+    height: 76px;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animations des liens */
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3a99ff;
+}
+
+/* Animations des boutons et cartes */
+.btn, .apartment-card {
+    transition: all 0.3s ease;
+}
+
+.btn:hover, .apartment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animations des liens */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: #3a99ff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Animation des boutons */
+.btn {
+    transition: all 0.3s ease !important;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* Animation de page */
+.page-transition {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation des cartes */
+.property-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  nav ul {
+      font-size: 20px;
+  }
+
+  .formulaire-choix {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .photos {
+      width: 97%;
+      max-width: none;
+      margin-right: 0;
+      margin-bottom: 30px;
+  }
+
+  .icons {
+      margin-left: 0;
+  }
+
+  .formulaire-contact input {
+      width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  nav ul {
+      font-size: 18px;
+  }
+
+  .formulaire-choix {
+      gap: 20px;
+      height: auto;
+  }
+
+  .photos {
+      width: 97%;
+      max-width: none;
+      margin-right: 0;
+      margin-bottom: 20px;
+  }
+
+  .icons {
+      gap: 10px;
+      margin-left: 10%;
+  }
+
+  .formulaire-contact input {
+      width: 100%;
+      font-size: 18px;
+  }
+}
+
+/* Variables globales */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --transition-speed: 0.3s;
+}
+
+/* Animations globales */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    transition: color var(--transition-speed);
+}
+
+.navbar-nav .nav-link {
+    color: #3a99ff !important;
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: color var(--transition-speed);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all var(--transition-speed);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Section À propos */
+.about-section {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0,123,255,0.1) 0%, rgba(23,162,184,0.1) 100%);
+    transform: skewY(-3deg);
+    transform-origin: 0;
+    z-index: -1;
+}
+
+.about-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed);
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+}
+
+.about-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    transition: transform var(--transition-speed);
+}
+
+.about-card:hover .about-icon {
+    transform: scale(1.1);
+}
+
+/* Section Contact */
+.contact-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 5rem 0;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.8rem;
+    transition: all var(--transition-speed);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    transition: all var(--transition-speed);
+}
+
+.btn-primary:hover::after {
+    left: 100%;
+}
+
+/* Animations spécifiques */
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+/* Effets de survol pour les cartes d'appartements */
+.apartment-card {
+    transition: all var(--transition-speed);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.apartment-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.apartment-card img {
+    transition: all var(--transition-speed);
+}
+
+.apartment-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer a {
+    color: rgba(255,255,255,0.8);
+    transition: color var(--transition-speed);
+}
+
+.footer a:hover {
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        background: white;
+    }
+    
+    .about-card {
+        margin-bottom: 2rem;
+    }
+    
+    .contact-card {
+        margin-bottom: 2rem;
+    }
+}

@@ -1,0 +1,133 @@
+.footer-modern {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.footer-widget {
+    margin-bottom: 30px;
+}
+
+.widget-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.widget-title:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #007bff;
+    margin-top: 10px;
+}
+
+.footer-text {
+    color: #999;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #007bff;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    color: #999;
+}
+
+.footer-contact li i {
+    margin-right: 15px;
+    color: #007bff;
+}
+
+.footer-hours {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-hours li {
+    display: flex;
+    justify-content: space-between;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    background-color: #111;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    color: #999;
+}
+
+.footer-bottom-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.footer-bottom-links a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #007bff;
+}
